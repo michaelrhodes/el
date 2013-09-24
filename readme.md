@@ -10,6 +10,15 @@ indented is a module for inserting DOM elements into other DOM elements. The int
 npm install indented
 ```
 
+## API
+``` js
+.append(target, element)
+.prepend(target, element)
+.before(target, element)
+.after(target, element)
+.insert(target, element)
+```
+
 ### Example
 ``` js
 var fs = require('fs')
@@ -32,6 +41,9 @@ indent.insert(page.querySelector('body'), content)
 
 process.stdout.write(page.doctype + page.outerHTML)
 ```
+
+#### Note
+When an element is inserted into another, it can no longer be manipulated, so leave all your insertions until the last minute. 
 
 ### License
 [MIT](http://opensource.org/licenses/MIT)
