@@ -47,7 +47,13 @@ var indented = function(target, element, position) {
   
   // Determine indent size of target document
   // eg. One tab or four spaces
-  var indent = detect(first.outerHTML) || '  '
+  var indent = '  '
+
+  // detect-indent blows up if there aren’t any space characters.
+  // https://github.com/sindresorhus/detect-indent/issues/4
+  if (/(\s+<)|(>\s+)/.test(first.outerHTML)) { 
+    indent = detect(first.outerHTML)
+  }
 
   // Handle document fragments
   if (/fragment/.test(element.nodeName)) {
