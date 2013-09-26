@@ -71,4 +71,15 @@ module.exports = function(run) {
     test.equal(ul.outerHTML, expected, expected)
     test.end()
   })
+
+  run('no existing whitespace', function(test) {
+    var expected = '<strong>Bad\n  <strong>Bad</strong>\n</strong>'
+    var strong = domify(subitem)
+
+    indent.append(strong, strong)
+
+    test.equal(strong.outerHTML, expected, expected)
+    test.end()
+  })
+
 }
