@@ -1,6 +1,6 @@
 {
   "name": "indented",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "DOM insertion that respects indentation.",
   "main": "index.js",
   "dependencies": {
@@ -19,7 +19,7 @@
     "browsers": {
       "ie": [9, 10],
       "chrome": [25],
-      "firefox": [4, 19],
+      "firefox": [19],
       "safari": [5.1, 6],
       "opera": [12],
       "iphone": [6],
