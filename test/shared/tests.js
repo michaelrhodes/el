@@ -6,7 +6,7 @@ var item = '<li class="item">\n  <a href="/items/1">Item 1</a>\n</li>\n'
 var subitem = '<strong>Bad</strong>\n'
 
 module.exports = function(run) {
-
+ 
   run('append', function(test) {
     var expected = '<ul class="navigation">\n  <li>Some existing item</li>\n  <li class="item">\n    <a href="/items/1">Item 1</a>\n  </li>\n</ul>'
 
@@ -80,6 +80,18 @@ module.exports = function(run) {
 
     test.equal(strong.outerHTML, expected, expected)
     test.end()
+  })
+
+  run('no existing whitespace with set' ,function(test) {
+    var expected = '<strong>Bad\n\t<strong>Bad</strong>\n</strong>'
+    var strong = domify(subitem)
+
+    indent.set('\t')
+    indent.append(strong, strong)
+
+    test.equal(strong.outerHTML, expected, expected)
+    test.end()
+
   })
 
 }
