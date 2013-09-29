@@ -42,7 +42,7 @@ var indented = function(target, element, position) {
   
   // Determine indent size of target document
   // eg. One tab or four spaces
-  indent = detect(first.outerHTML) || indent
+  indent = detect(first.outerHTML.toString()) || indent
 
   // Handle document fragments
   if (/fragment/.test(element.nodeName)) {
