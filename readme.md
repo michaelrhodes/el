@@ -31,14 +31,14 @@ npm install indented
 ``` js
 var fs = require('fs')
 var indent = require('indented')
-var dom = require('domlin')
+var mkdom = require('mkdom')
 
 var wrapper = fs.readFileSync('./templates/blog.html')
 var article = fs.readFileSync('./templates/blog-article.html')
 
 // Create DOM elements
-var page = dom(wrapper)
-var content = dom(article)
+var page = mkdom(wrapper)
+var content = mkdom(article)
 
 // Add data
 page.querySelector('title').textContent =
