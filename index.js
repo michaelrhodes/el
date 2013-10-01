@@ -69,10 +69,13 @@ var indented = function(target, element, position) {
 
   var output = []
   all.forEach(function(line) {
-    // Prepend indentation 
-    output.push(
-      Array(level).join(indent) + line
-    )
+    // Remove empty lines
+    if (!/^\s+$/.test(line)) {
+      // Prepend indentation
+      output.push(
+        Array(level).join(indent) + line
+      )
+    }
   })
 
   // Insert HTML and reset the trailing indentation
