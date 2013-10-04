@@ -8,6 +8,24 @@ var lines = function(string) {
   return string.split(/\n|\n\r/)
 }
 
+// This helps with cloned nodes whose
+// whitespace has gotten out of whack.
+var balance = function(lines) {
+  var whitespace = /^(\s+)/
+  var trailing = lines[lines.length - 1].match(whitespace)
+ 
+  if (!trailing) {
+    return lines
+  }
+
+  var indent = trailing[0]
+  return lines.map(function(line) {
+    return line.replace(
+      RegExp('^' + indent), ''
+    ) 
+  })
+}
+
 var indented = function(target, element, position) {
   var level = 1
   var first = target
@@ -42,7 +60,6 @@ var indented = function(target, element, position) {
   
   // Determine indent size of target document
   // eg. One tab or four spaces
-  // Check innerHTML in old Firefox
   indent = detect(first.outerHTML) || indent
 
   // Handle document fragments
@@ -68,7 +85,7 @@ var indented = function(target, element, position) {
   }
 
   var output = []
-  all.forEach(function(line) {
+  balance(all).forEach(function(line) {
     // Remove empty lines
     if (!/^\s+$/.test(line)) {
       // Prepend indentation

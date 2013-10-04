@@ -42,7 +42,6 @@ module.exports = function(run) {
     indent.before(ul.querySelector('li'), li)
 
     test.equal(ul.outerHTML, expected, expected) 
-
     test.end()
   })
 
@@ -82,7 +81,7 @@ module.exports = function(run) {
     test.end()
   })
 
-  run('no existing whitespace with set' ,function(test) {
+  run('no existing whitespace with set', function(test) {
     var expected = '<strong>Bad\n\t<strong>Bad</strong>\n</strong>'
     var strong = mkdom(subitem)
 
@@ -91,7 +90,6 @@ module.exports = function(run) {
 
     test.equal(strong.outerHTML, expected, expected)
     test.end()
-
   })
-
+ 
 }
