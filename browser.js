@@ -9,7 +9,12 @@ module.exports = {
     target.parentNode.insertBefore(element, target)
   },
   after: function(target, element) {
-    target.parentNode.insertBefore(element, target.nextSibiling)
+    if (target.nextSibling) {
+      target.parentNode.insertBefore(element, target.nextSibiling)
+    }
+    else {
+      target.parentNode.appendChild(element)
+    }
   },
   insert: function(target, element) {
     target.innerHTML = ''
