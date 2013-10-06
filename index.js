@@ -26,7 +26,7 @@ var balance = function(lines) {
   })
 }
 
-var indented = function(target, element, position) {
+var el = function(target, element, position) {
   var level = 1
   var first = target
   var previous = target
@@ -136,19 +136,19 @@ var indented = function(target, element, position) {
 
 module.exports = {
   prepend: function(target, element) {
-    return indented(target, element, 'prepend')
+    el(target, element, 'prepend')
   },
   append: function(target, element) {
-    return indented(target, element, 'append')  
+    el(target, element, 'append')  
   },
   before: function(target, element) {
-    return indented(target, element, 'before')  
+    el(target, element, 'before')  
   },
   after: function(target, element) {
-    return indented(target, element, 'after')  
+    el(target, element, 'after')  
   },
   insert: function(target, element) {
-    return indented(target, element, 'insert')  
+    el(target, element, 'insert')  
   },
   set: function(type) {
     indent = type 
