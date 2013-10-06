@@ -9,8 +9,8 @@ module.exports = {
     target.parentNode.insertBefore(element, target)
   },
   after: function(target, element) {
-    if (target.nextSibling) {
-      target.parentNode.insertBefore(element, target.nextSibiling)
+    if (target.nextElementSibling) {
+      target.parentNode.insertBefore(element, target.nextElementSibiling)
     }
     else {
       target.parentNode.appendChild(element)
