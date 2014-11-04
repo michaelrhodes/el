@@ -39,7 +39,7 @@ var el = function(target, element, position) {
       
       // Ignore root element in partial documents,
       // for they are unfortunate domification cruft.
-      var domifyRoot = previous.nodeName === 'DOMIFY'
+      var domifyRoot = previous.nodeName === 'MKDOM'
       var jsdomifyRoot = (
         previous.nodeName === 'HTML' &&
         !previous.parentNode.doctype
